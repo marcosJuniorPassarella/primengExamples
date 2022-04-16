@@ -11,4 +11,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.primeNgConfig.ripple = true;
   }
+
+  hello() {
+    console.log('Hello');
+  }
 }

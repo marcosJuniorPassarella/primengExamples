@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { FormsRoutingModule } from './forms-routing.module';
 
 @NgModule({
   declarations: [FormsComponent],
@@ -14,6 +15,7 @@ import { ButtonModule } from 'primeng/button';
     BrowserAnimationsModule,
     InputTextModule,
     ButtonModule,
+    FormsRoutingModule,
   ],
   providers: [],
   bootstrap: [FormsComponent],
