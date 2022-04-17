@@ -10,6 +10,9 @@
 </p-toolbar>
 
 <form [formGroup]="userInformationsForm" (ngSubmit)="onSubmit()">
+  <h3 class="flex align-items-center justify-content-center">
+    Formulário Simples
+  </h3>
   <div class="mt-5 flex align-items-center justify-content-center">
     <span class="p-float-label">
       <input formControlName="name" id="float-input" type="text" pInputText />
@@ -38,6 +41,7 @@
       pButton
       type="submit"
       label="Enviar"
+      icon="pi pi-trash"
       class="p-button-primary mt-3"
     ></button>
     <button
@@ -45,6 +49,7 @@
       pButton
       type="submit"
       label="Limpar"
+      icon="pi pi-trash"
       class="p-button-danger mt-3 ml-3"
       (click)="cleanForm()"
     ></button>
