@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { FormsModule } from './components/forms/forms.module';
 import { ButtonModule } from 'primeng/button';
 import { HomeComponent } from './components/home/home.component';
+import { ToolbarModule } from 'primeng/toolbar';
+import { SidebarModule } from 'primeng/sidebar';
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
@@ -15,6 +17,8 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule,
     FormsModule,
     ButtonModule,
+    ToolbarModule,
+    SidebarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

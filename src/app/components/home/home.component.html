@@ -1,13 +1,47 @@
-<div class="flex align-items-center justify-content-center">
-  <h3>Exemplos de componentes PrimeNG</h3>
-</div>
-<hr />
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <button
+      pButton
+      type="button"
+      label="Exemplos"
+      class="p-button-primary"
+      (click)="display = true"
+    ></button>
+  </div>
+  <div class="p-toolbar-group-right">
+    <p [ngStyle]="{ color: 'var(--blue-800)' }">Componentes PrimeNG</p>
+  </div>
+</p-toolbar>
+
+<p-sidebar [(visible)]="display">
+  <p routerLink="/forms" class="show">Exemplos de Formulários</p>
+  <p routerLink="/forms" class="show">Exemplos de Tabelas</p>
+</p-sidebar>
+
 <div class="flex align-items-center justify-content-center mt-4">
+  <h1 [ngStyle]="{ color: 'var(--blue-700)' }">
+    Exemplos de uso de componentes PrimeNg Angular
+  </h1>
+</div>
+
+<div class="flex align-items-center justify-content-center mt-3 ml-5 mr-5">
+  <p [ngStyle]="{ color: 'var(--blue-800)' }">
+    Veja aqui vários exemplos de uso de componentes da biblioteca PrimeNG
+    utilizados pensando no que é mais usado no dia a dia de um profissional de
+    Front End que a utiliza diariamente para a construção de suas interfaces.
+  </p>
+</div>
+
+<div class="flex align-items-center justify-content-center mt-4">
+  <h1 [ngStyle]="{ color: 'var(--blue-700)' }">Componentes mais utilizados</h1>
+</div>
+
+<div class="flex align-items-center justify-content-center mt-3 ml-5 mr-5">
   <button
-    routerLink="/forms"
     pButton
     type="button"
+    routerLink="/forms"
     label="Formulários"
-    class="p-button-primary"
+    class="p-button-warning"
   ></button>
 </div>

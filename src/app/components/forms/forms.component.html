@@ -7,11 +7,17 @@
       routerLink=""
     ></p-button>
   </div>
+  <div class="p-toolbar-group-left mr-5">
+    <h3 [ngStyle]="{ color: 'var(--blue-800)' }">Exemplos de formulários</h3>
+  </div>
 </p-toolbar>
 
 <!-- Formulário Simples -->
 <form [formGroup]="userInformationsForm" (ngSubmit)="onSimpleSubmit()">
-  <h3 class="flex align-items-center justify-content-center">
+  <h3
+    [ngStyle]="{ color: 'var(--blue-600)' }"
+    class="flex align-items-center justify-content-center"
+  >
     Formulário Simples
   </h3>
   <div class="grid mt-5 flex align-items-center justify-content-center">
@@ -67,7 +73,10 @@
 
 <!-- Grupo de formulários -->
 <form [formGroup]="groupForm" (ngSubmit)="onGroupSubmit()">
-  <h3 class="flex align-items-center justify-content-center mt-5">
+  <h3
+    [ngStyle]="{ color: 'var(--blue-600)' }"
+    class="flex align-items-center justify-content-center mt-5"
+  >
     Grupo de Formulários
   </h3>
   <div class="grid p-fluid">
