@@ -51,6 +51,7 @@
       icon="pi pi-send"
       class="p-button-primary mt-3"
       [disabled]="!userInformationsForm.valid"
+      *ngIf="userInformationsForm.touched"
     ></button>
     <button
       *ngIf="sendSimpleDatas"
@@ -144,6 +145,7 @@
       icon="pi pi-send"
       class="p-button-primary mt-3"
       [disabled]="!groupForm.valid"
+      *ngIf="groupForm.touched"
     ></button>
     <button
       *ngIf="sendGroupDatas"
