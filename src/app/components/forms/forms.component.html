@@ -3,16 +3,57 @@
     <p-button
       label="Voltar"
       icon="pi pi-arrow-left"
-      styleClass="p-button-success ml-3"
+      styleClass="p-button-primary ml-3"
       routerLink=""
     ></p-button>
   </div>
 </p-toolbar>
 
-<div class="mt-5 flex align-items-center justify-content-center  ">
-  <span class="p-float-label">
-    <input id="float-input" type="text" pInputText />
-    <label for="float-input">Nome</label>
-  </span>
-  <button pButton type="button" label="Click" class="ml-3"></button>
+<form [formGroup]="userInformationsForm" (ngSubmit)="onSubmit()">
+  <div class="mt-5 flex align-items-center justify-content-center">
+    <span class="p-float-label">
+      <input formControlName="name" id="float-input" type="text" pInputText />
+      <label for="float-input">Nome</label>
+    </span>
+    <span class="p-float-label ml-3">
+      <input
+        formControlName="surname"
+        id="float-input"
+        type="text"
+        pInputText
+      />
+      <label for="float-input">Sobrenome</label>
+    </span>
+    <span class="p-float-label ml-3">
+      <input formControlName="age" id="float-input" type="text" pInputText />
+      <label for="float-input">Idade</label>
+    </span>
+    <span class="p-float-label ml-3">
+      <input formControlName="email" id="float-input" type="text" pInputText />
+      <label for="float-input">Email</label>
+    </span>
+  </div>
+  <div class="flex align-items-center justify-content-center mt-4">
+    <button
+      pButton
+      type="submit"
+      label="Enviar"
+      class="p-button-primary mt-3"
+    ></button>
+    <button
+      *ngIf="sendDatas"
+      pButton
+      type="submit"
+      label="Limpar"
+      class="p-button-danger mt-3 ml-3"
+      (click)="cleanForm()"
+    ></button>
+  </div>
+</form>
+<div class="datas my-5" *ngIf="sendDatas">
+  <h2>Dados inseridos:</h2>
+  <span>Nome: {{ getDatas()?.name }}</span>
+  <span>Sobrenome: {{ getDatas()?.surname }}</span>
+  <span>Idade: {{ getDatas()?.age }}</span>
+  <span>Email: {{ getDatas()?.email }}</span>
 </div>
