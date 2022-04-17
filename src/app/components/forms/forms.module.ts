@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import {ToolbarModule} from 'primeng/toolbar';
+import { ToolbarModule } from 'primeng/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { CheckboxModule } from 'primeng/checkbox';
 
 import { FormsComponent } from './forms.component';
 import { FormsRoutingModule } from './forms-routing.module';
@@ -18,7 +20,9 @@ import { FormsRoutingModule } from './forms-routing.module';
     InputTextModule,
     ButtonModule,
     FormsRoutingModule,
-    ToolbarModule
+    ToolbarModule,
+    RadioButtonModule,
+    CheckboxModule,
   ],
   providers: [],
   bootstrap: [FormsComponent],

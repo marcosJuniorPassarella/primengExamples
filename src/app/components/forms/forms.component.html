@@ -9,11 +9,12 @@
   </div>
 </p-toolbar>
 
-<form [formGroup]="userInformationsForm" (ngSubmit)="onSubmit()">
+<!-- Formulário Simples -->
+<form [formGroup]="userInformationsForm" (ngSubmit)="onSimpleSubmit()">
   <h3 class="flex align-items-center justify-content-center">
     Formulário Simples
   </h3>
-  <div class="mt-5 flex align-items-center justify-content-center">
+  <div class="grid mt-5 flex align-items-center justify-content-center">
     <span class="p-float-label">
       <input formControlName="name" id="float-input" type="text" pInputText />
       <label for="float-input">Nome</label>
@@ -41,24 +42,115 @@
       pButton
       type="submit"
       label="Enviar"
-      icon="pi pi-trash"
+      icon="pi pi-send"
       class="p-button-primary mt-3"
+      [disabled]="!userInformationsForm.valid"
     ></button>
     <button
-      *ngIf="sendDatas"
+      *ngIf="sendSimpleDatas"
       pButton
       type="submit"
       label="Limpar"
       icon="pi pi-trash"
       class="p-button-danger mt-3 ml-3"
-      (click)="cleanForm()"
+      (click)="cleanSimpleForm()"
     ></button>
   </div>
 </form>
-<div class="datas my-5" *ngIf="sendDatas">
+<div class="datas my-5" *ngIf="sendSimpleDatas">
   <h2>Dados inseridos:</h2>
-  <span>Nome: {{ getDatas()?.name }}</span>
-  <span>Sobrenome: {{ getDatas()?.surname }}</span>
-  <span>Idade: {{ getDatas()?.age }}</span>
-  <span>Email: {{ getDatas()?.email }}</span>
+  <span>Nome: {{ getSimpleDatasForm()?.name }}</span>
+  <span>Sobrenome: {{ getSimpleDatasForm()?.surname }}</span>
+  <span>Idade: {{ getSimpleDatasForm()?.age }}</span>
+  <span>Email: {{ getSimpleDatasForm()?.email }}</span>
+</div>
+
+<!-- Grupo de formulários -->
+<form [formGroup]="groupForm" (ngSubmit)="onGroupSubmit()">
+  <h3 class="flex align-items-center justify-content-center mt-5">
+    Grupo de Formulários
+  </h3>
+  <div class="grid p-fluid">
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input
+          type="text"
+          pInputText
+          placeholder="Nome de usuário"
+          formControlName="username"
+        />
+      </div>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">$</span>
+        <input
+          type="text"
+          pInputText
+          placeholder="Preço"
+          formControlName="price"
+        />
+        <span class="p-inputgroup-addon">.00</span>
+      </div>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">www</span>
+        <input
+          type="text"
+          pInputText
+          placeholder="Website"
+          formControlName="website"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="grid mt-2">
+    <div class="col-12">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"
+          ><i class="pi pi-tags" style="line-height: 1.25"></i
+        ></span>
+        <span class="p-inputgroup-addon"
+          ><i class="pi pi-shopping-cart" style="line-height: 1.25"></i
+        ></span>
+        <input
+          type="text"
+          pInputText
+          placeholder="Produto"
+          formControlName="product"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="flex align-items-center justify-content-center mt-4">
+    <button
+      pButton
+      type="submit"
+      label="Enviar"
+      icon="pi pi-send"
+      class="p-button-primary mt-3"
+      [disabled]="!groupForm.valid"
+    ></button>
+    <button
+      *ngIf="sendGroupDatas"
+      pButton
+      type="submit"
+      label="Limpar"
+      icon="pi pi-trash"
+      class="p-button-danger mt-3 ml-3"
+      (click)="cleanGroupForm()"
+    ></button>
+  </div>
+</form>
+<div class="datas my-5" *ngIf="sendGroupDatas">
+  <h2>Dados inseridos:</h2>
+  <span>Nome de usuário: {{ getGroupFormDatas()?.username }}</span>
+  <span>Preço: {{ getGroupFormDatas()?.price }}</span>
+  <span>Website: {{ getGroupFormDatas()?.website }}</span>
+  <span>Product: {{ getGroupFormDatas()?.product }}</span>
 </div>

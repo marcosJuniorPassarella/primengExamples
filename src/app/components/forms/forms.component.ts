@@ -8,7 +8,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormsComponent implements OnInit {
   userInformationsForm!: FormGroup;
-  sendDatas = false;
+  groupForm!: FormGroup;
+  sendSimpleDatas = false;
+  sendGroupDatas = false;
 
   ngOnInit(): void {
     this.userInformationsForm = new FormGroup({
@@ -17,13 +19,24 @@ export class FormsComponent implements OnInit {
       age: new FormControl(null, Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
     });
+
+    this.groupForm = new FormGroup({
+      username: new FormControl('', [Validators.required]),
+      price: new FormControl(null, [Validators.required]),
+      website: new FormControl('', [Validators.required]),
+      product: new FormControl('', [Validators.required]),
+    });
   }
 
-  onSubmit() {
-    this.sendDatas = true;
+  onSimpleSubmit() {
+    this.sendSimpleDatas = true;
   }
 
-  getDatas() {
+  onGroupSubmit() {
+    this.sendGroupDatas = true;
+  }
+
+  getSimpleDatasForm() {
     if (this.userInformationsForm.valid) {
       return {
         // @ts-ignore
@@ -39,8 +52,29 @@ export class FormsComponent implements OnInit {
     return;
   }
 
-  cleanForm() {
+  getGroupFormDatas() {
+    if (this.groupForm.valid) {
+      return {
+        // @ts-ignore
+        username: this.groupForm.controls?.username?.value,
+        // @ts-ignore
+        price: this.groupForm.controls?.price?.value,
+        // @ts-ignore
+        website: this.groupForm.controls?.website?.value,
+        // @ts-ignore
+        product: this.groupForm.controls?.product?.value,
+      };
+    }
+    return;
+  }
+
+  cleanSimpleForm() {
     this.userInformationsForm.reset();
-    this.sendDatas = false;
+    this.sendSimpleDatas = false;
+  }
+
+  cleanGroupForm() {
+    this.groupForm.reset();
+    this.sendGroupDatas = false;
   }
 }
