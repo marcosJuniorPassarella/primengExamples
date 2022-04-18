@@ -10,10 +10,12 @@ import { CheckboxModule } from 'primeng/checkbox';
 
 import { FormsComponent } from './forms.component';
 import { FormsRoutingModule } from './forms-routing.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [FormsComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

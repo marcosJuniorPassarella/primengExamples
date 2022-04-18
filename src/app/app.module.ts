@@ -9,6 +9,8 @@ import { ButtonModule } from 'primeng/button';
 import { HomeComponent } from './components/home/home.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import { SidebarModule } from 'primeng/sidebar';
+import { TablesModule } from './components/table/table.module';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
@@ -19,6 +21,8 @@ import { SidebarModule } from 'primeng/sidebar';
     ButtonModule,
     ToolbarModule,
     SidebarModule,
+    TablesModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
