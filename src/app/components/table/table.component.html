@@ -14,21 +14,23 @@
 
 <!-- Tabela -->
 
-<p-table [value]="tableDatas">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Cor</th>
-      <th>Id</th>
-      <th>Data</th>
-      <th>Ano</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-car>
-    <tr>
-      <td>{{ tableDatas[0].color }}</td>
-      <td>{{ tableDatas[0].id }}</td>
-      <td>{{ tableDatas[0].pantone_value }}</td>
-      <td>{{ tableDatas[0].year }}</td>
-    </tr>
-  </ng-template>
-</p-table>
+<div class="">
+  <p-table [value]="tableDatas">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Cor</th>
+        <th>Id</th>
+        <th>Data</th>
+        <th>Ano</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-car>
+      <tr>
+        <td>{{ tableDatas[0].color }}</td>
+        <td>{{ tableDatas[0].id }}</td>
+        <td>{{ tableDatas[0].pantone_value }}</td>
+        <td>{{ tableDatas[0].year }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

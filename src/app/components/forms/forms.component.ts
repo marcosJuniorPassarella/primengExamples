@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-forms',
@@ -11,20 +16,23 @@ export class FormsComponent implements OnInit {
   groupForm!: FormGroup;
   sendSimpleDatas = false;
   sendGroupDatas = false;
+  contactForm!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    this.userInformationsForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      surname: new FormControl('', Validators.required),
-      age: new FormControl(null, Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
+    this.userInformationsForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      surname: ['', [Validators.required]],
+      age: [Number, [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
     });
 
-    this.groupForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
-      price: new FormControl(null, [Validators.required]),
-      website: new FormControl('', [Validators.required]),
-      product: new FormControl('', [Validators.required]),
+    this.groupForm = this.formBuilder.group({
+      username: ['', [Validators.required]],
+      price: [Number, [Validators.required]],
+      website: ['', [Validators.required]],
+      product: ['', [Validators.required]],
     });
   }
 
@@ -76,5 +84,9 @@ export class FormsComponent implements OnInit {
   cleanGroupForm() {
     this.groupForm.reset();
     this.sendGroupDatas = false;
+  }
+
+  sendContactDatas() {
+    console.log(this.contactForm.value);
   }
 }
